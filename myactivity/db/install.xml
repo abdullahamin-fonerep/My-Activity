@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/myactivity/db" VERSION="2024081600" COMMENT="XMLDB file for Moodle mod/mymodule"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="mymodule" COMMENT="Table for storing instances of the mymodule activity">
+      <FIELDS>
+        <!-- Primary key field -->
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true">
+          <COMMENT>ID of the record</COMMENT>
+        </FIELD>
+
+        <!-- Name of the activity -->
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true">
+          <COMMENT>Name of the module instance</COMMENT>
+        </FIELD>
+
+        <!-- URL associated with the activity -->
+        <FIELD NAME="url" TYPE="char" LENGTH="255" NOTNULL="true">
+          <COMMENT>URL associated with the module instance</COMMENT>
+        </FIELD>
+
+        <!-- Timestamps -->
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true">
+          <COMMENT>Timestamp when the record was created</COMMENT>
+        </FIELD>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0">
+          <COMMENT>Timestamp when the record was last modified</COMMENT>
+        </FIELD>
+      </FIELDS>
+      <KEYS>
+        <!-- Primary key definition -->
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <!-- Index for the name field if needed for performance -->
+        <INDEX NAME="name_idx" UNIQUE="false" FIELDS="name"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>
